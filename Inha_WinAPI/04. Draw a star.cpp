@@ -4,7 +4,7 @@
 #include "framework.h"
 #include "Inha_WinAPI.h"
 
-#include "DrawSunflower.h"
+#include "DrawStar.h"
 
 #define MAX_LOADSTRING 100
 
@@ -128,6 +128,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     PAINTSTRUCT ps;
     HDC hdc;
 
+    HPEN hPen, oldPen;
+    HBRUSH hBrush, oldBrush;
+
     switch (message)
     {
     case WM_CREATE:
@@ -151,9 +154,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_PAINT:
     {
         hdc = BeginPaint(hWnd, &ps);
+
         // TODO : 여기에 hdc 를 사용하는 그리기 코드를 추가합니다
+
+        // 펜
+        hPen = CreatePen(PS_DASHDOTDOT, 1, RGB(0, 0, 255));
+        oldPen = (HPEN)SelectObject(hdc, hPen);
+
+        // 브러쉬
+        hBrush = CreateSolidBrush(RGB(200, 200, 200));
+        oldBrush = (HBRUSH)SelectObject(hdc, hBrush);
+
         POINT center = { 400,400 };
-        DrawSunflower(hdc, center, 100, 8);
+        DrawStar(hdc, center, 100);
+
+        // 펜
+        SelectObject(hdc,oldPen);
+        DeleteObject(hPen);
+
+        // 브러쉬
+        SelectObject(hdc, oldBrush);
+        DeleteObject(hBrush);
+
+        EndPaint(hWnd, &ps);
 
         break;
     }

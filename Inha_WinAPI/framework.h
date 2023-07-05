@@ -13,3 +13,9 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+
+// Draw Geometric
+
+#include "DrawGrid.h"
+#include "DrawSunflower.h"
+#include "DrawStar.h"

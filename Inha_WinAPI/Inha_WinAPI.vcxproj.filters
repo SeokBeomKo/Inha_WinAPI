@@ -19,11 +19,14 @@
     <Filter Include="소스 파일\Data">
       <UniqueIdentifier>{82cd8a3e-737b-401f-aaec-810cd0f56ba5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Data\02.Draw a grid">
-      <UniqueIdentifier>{bb876bd8-a6c5-40dc-902d-fd3ae7774782}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Data\03. Draw a circle">
       <UniqueIdentifier>{29583f17-15a3-4715-9b04-791b170a960c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Data\02. Draw a grid">
+      <UniqueIdentifier>{bb876bd8-a6c5-40dc-902d-fd3ae7774782}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Data\04. Draw a star">
+      <UniqueIdentifier>{2643dc04-ccce-4c76-934b-716a414adcff}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -40,7 +43,7 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="DrawGrid.h">
-      <Filter>소스 파일\Data\02.Draw a grid</Filter>
+      <Filter>소스 파일\Data\02. Draw a grid</Filter>
     </ClInclude>
     <ClInclude Include="DrawCircle.h">
       <Filter>소스 파일\Data\03. Draw a circle</Filter>
@@ -48,15 +51,21 @@
     <ClInclude Include="DrawSunflower.h">
       <Filter>소스 파일\Data\03. Draw a circle</Filter>
     </ClInclude>
+    <ClInclude Include="DrawStar.h">
+      <Filter>소스 파일\Data\04. Draw a star</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="01.Chatting box.cpp">
+    <ClCompile Include="01. Chatting box.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
-    <ClCompile Include="02.Draw a grid.cpp">
+    <ClCompile Include="02. Draw a grid.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
-    <ClCompile Include="03.Draw a circle.cpp">
+    <ClCompile Include="03. Draw a circle.cpp">
+      <Filter>소스 파일\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="04. Draw a star.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
   </ItemGroup>

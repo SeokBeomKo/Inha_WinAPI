@@ -147,11 +147,13 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="DrawCircle.h" />
+    <ClInclude Include="DrawStar.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="01.Chatting box.cpp" />
-    <ClCompile Include="02.Draw a grid.cpp" />
-    <ClCompile Include="03.Draw a circle.cpp" />
+    <ClCompile Include="01. Chatting box.cpp" />
+    <ClCompile Include="02. Draw a grid.cpp" />
+    <ClCompile Include="03. Draw a circle.cpp" />
+    <ClCompile Include="04. Draw a star.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Inha_WinAPI.rc" />
