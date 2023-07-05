@@ -97,8 +97,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+   HWND hWnd = CreateWindowW(szWindowClass, _T("20230625_Q1"), WS_OVERLAPPEDWINDOW,
+       200, 300, 1280, 860, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {
@@ -123,34 +123,95 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+    PAINTSTRUCT ps;
+    HDC hdc;
+
+    static TCHAR str[100], msg[10][100];
+    static int cnt = 0, yPos = 0, line = 0;
+    static SIZE size;
+
     switch (message)
     {
-    case WM_COMMAND:
+    case WM_CREATE:
+        cnt = 0;
+        yPos = 20;
+        line = 0;
+        CreateCaret(hWnd, NULL, 5, 15);     // 깜빡이는 커서 캐럿
+        ShowCaret(hWnd);
+        break;
+    case WM_KEYDOWN:
+        break;
+    case WM_KEYUP:
+        break;
+    case WM_CHAR:
+    {
+        if (wParam == VK_BACK && cnt > 0)
         {
-            int wmId = LOWORD(wParam);
-            // 메뉴 선택을 구문 분석합니다:
-            switch (wmId)
+            cnt--;
+        }
+        else if (wParam == VK_RETURN)       // Enter Key
+        {
+            if (line < 10)
             {
-            case IDM_ABOUT:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-                break;
-            case IDM_EXIT:
-                DestroyWindow(hWnd);
-                break;
-            default:
-                return DefWindowProc(hWnd, message, wParam, lParam);
+                _tcscpy(msg[line], str);
+                line++;
             }
+            else
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    _tcscpy(msg[i], msg[i + 1]);
+                }
+                _tcscpy(msg[9], str);
+            }
+            str[0] = { 0 };
+            cnt = 0;
         }
-        break;
-    case WM_PAINT:
+        else
         {
-            PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-            EndPaint(hWnd, &ps);
+            str[cnt++] = wParam;
         }
+        str[cnt] = NULL;
+        InvalidateRgn(hWnd, NULL, TRUE);
+    }
+    break;
+    case WM_COMMAND:
+    {
+        int wmId = LOWORD(wParam);
+        switch (wmId)
+        {
+        case IDM_ABOUT:
+            DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+            break;
+        case IDM_EXIT:
+            DestroyWindow(hWnd);
+            break;
+        default:
+            return DefWindowProc(hWnd, message, wParam, lParam);
+        }
+    }
+    break;
+    case WM_PAINT:
+    {
+        hdc = BeginPaint(hWnd, &ps);
+        // TODO : 여기에 hdc 를 사용하는 그리기 코드를 추가합니다
+
+        for (int i = 0; i < 10; i++)
+        {
+            // 라인 출력
+            TextOut(hdc, 200, 100 + yPos * i, msg[i], _tcslen(msg[i]));
+        }
+        TextOut(hdc, 200, yPos + 400, str, _tcslen(str));
+
+        GetTextExtentPoint(hdc, str, _tcslen(str), &size);
+        SetCaretPos(200 + size.cx, yPos + 400);
+
+        EndPaint(hWnd, &ps);
         break;
+    }
     case WM_DESTROY:
+        HideCaret(hWnd);
+        DestroyCaret();
         PostQuitMessage(0);
         break;
     default:
