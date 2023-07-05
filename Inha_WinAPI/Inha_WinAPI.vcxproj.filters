@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Core">
+      <UniqueIdentifier>{404f14f6-e655-452d-8896-83ec2a581704}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Data">
+      <UniqueIdentifier>{82cd8a3e-737b-401f-aaec-810cd0f56ba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Data\02.Draw a grid">
+      <UniqueIdentifier>{bb876bd8-a6c5-40dc-902d-fd3ae7774782}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -27,10 +36,16 @@
     <ClInclude Include="Inha_WinAPI.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="DrawGrid.h">
+      <Filter>소스 파일\Data\02.Draw a grid</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Inha_WinAPI.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="01.Chatting box.cpp">
+      <Filter>소스 파일\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="02.Draw a grid.cpp">
+      <Filter>소스 파일\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
