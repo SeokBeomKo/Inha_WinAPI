@@ -22,6 +22,9 @@
     <Filter Include="소스 파일\Data\02.Draw a grid">
       <UniqueIdentifier>{bb876bd8-a6c5-40dc-902d-fd3ae7774782}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Data\03. Draw a circle">
+      <UniqueIdentifier>{29583f17-15a3-4715-9b04-791b170a960c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -39,12 +42,18 @@
     <ClInclude Include="DrawGrid.h">
       <Filter>소스 파일\Data\02.Draw a grid</Filter>
     </ClInclude>
+    <ClInclude Include="DrawCircle.h">
+      <Filter>소스 파일\Data\03. Draw a circle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="01.Chatting box.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
     <ClCompile Include="02.Draw a grid.cpp">
+      <Filter>소스 파일\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="03.Draw a circle.cpp">
       <Filter>소스 파일\Core</Filter>
     </ClCompile>
   </ItemGroup>
