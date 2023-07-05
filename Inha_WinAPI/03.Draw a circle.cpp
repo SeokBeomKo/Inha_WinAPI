@@ -4,7 +4,7 @@
 #include "framework.h"
 #include "Inha_WinAPI.h"
 
-#include "DrawCircle.h"
+#include "DrawSunflower.h"
 
 #define MAX_LOADSTRING 100
 
@@ -152,8 +152,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
         hdc = BeginPaint(hWnd, &ps);
         // TODO : 여기에 hdc 를 사용하는 그리기 코드를 추가합니다
-        POINT center = { 300,300 };
-        DrawCircle(hdc, center, 200);
+        POINT center = { 400,400 };
+        DrawSunflower(hdc, center, 100, 8);
 
         break;
     }

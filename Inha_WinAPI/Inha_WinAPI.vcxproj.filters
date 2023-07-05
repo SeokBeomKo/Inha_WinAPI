@@ -45,6 +45,9 @@
     <ClInclude Include="DrawCircle.h">
       <Filter>소스 파일\Data\03. Draw a circle</Filter>
     </ClInclude>
+    <ClInclude Include="DrawSunflower.h">
+      <Filter>소스 파일\Data\03. Draw a circle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="01.Chatting box.cpp">

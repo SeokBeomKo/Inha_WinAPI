@@ -141,6 +141,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DrawGrid.h" />
+    <ClInclude Include="DrawSunflower.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Inha_WinAPI.h" />
     <ClInclude Include="Resource.h" />
